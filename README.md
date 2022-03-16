@@ -1,41 +1,32 @@
-JSDoc 3
-=======
-[![Build Status](https://secure.travis-ci.org/jsdoc3/jsdoc.png?branch=master)](http://travis-ci.org/jsdoc3/jsdoc)
+# JSDoc
+
+![Build status](https://github.com/jsdoc/jsdoc/workflows/build/badge.svg)
 
 An API documentation generator for JavaScript.
 
-Want to contribute to JSDoc? Please read `CONTRIBUTING.md`.
+Want to contribute to JSDoc? Please read [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+## Installation and Usage
 
-Installation and Usage
-----------------------
+JSDoc supports stable versions of Node.js 8.15.0 and later. You can install
+JSDoc globally or in your project's `node_modules` folder.
 
-You can run JSDoc on either Node.js or Mozilla Rhino.
+To install the latest version on npm globally (might require `sudo`;
+[learn how to fix this](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)):
 
-### Node.js
+    npm install -g jsdoc
 
-Native support for Node.js is available in JSDoc 3.3.0 and later. JSDoc
-supports Node.js 0.10 and later.
+To install the latest version on npm locally and save it in your package's
+`package.json` file:
 
-#### Installing JSDoc for Node.js
+    npm install --save-dev jsdoc
 
-You can install JSDoc in your project's `node_modules` folder, or you can
-install it globally.
-
-To install the latest alpha version:
-
-    npm install jsdoc@"<=3.3.0"
-
-To install the latest development version:
-
-    npm install git+https://github.com/jsdoc3/jsdoc.git
-
-**Note**: If you install JSDoc globally, do not use `sudo npm install`. This may
-prevent you from running JSDoc as a normal user. If you cannot install global
-packages without `sudo`, please
-[fix your npm directory permissions](http://howtonode.org/introduction-to-npm).
-
-#### Running JSDoc with Node.js
+**Note**: By default, npm adds your package using the caret operator in front of
+the version number (for example, `^3.6.3`). We recommend using the tilde
+operator instead (for example, `~3.6.3`), which limits updates to the most
+recent patch-level version. See
+[this Stack Overflow answer](https://stackoverflow.com/questions/22343224) for
+more information about the caret and tilde operators.
 
 If you installed JSDoc locally, the JSDoc command-line tool is available in
 `./node_modules/.bin`. To generate documentation for the file
@@ -43,7 +34,7 @@ If you installed JSDoc locally, the JSDoc command-line tool is available in
 
     ./node_modules/.bin/jsdoc yourJavaScriptFile.js
 
-Or if you installed JSDoc globally, simply run the `jsdoc` command:
+If you installed JSDoc globally, run the `jsdoc` command:
 
     jsdoc yourJavaScriptFile.js
 
@@ -52,63 +43,53 @@ can use the `--destination` (`-d`) option to specify another directory.
 
 Run `jsdoc --help` for a complete list of command-line options.
 
-### Mozilla Rhino
+## Templates and tools
 
-All versions of JSDoc 3 run on a customized version of Mozilla Rhino, which
-requires Java. You can run JSDoc 3 on Java 1.6 and later.
+The JSDoc community has created templates and other tools to help you generate
+and customize your documentation. Here are a few of them:
 
-#### Installing JSDoc for Mozilla Rhino
+### Templates
 
-To install JSDoc, download a .zip file for the
-[latest development version](https://github.com/jsdoc3/jsdoc/archive/master.zip)
-or a [previous release](https://github.com/jsdoc3/jsdoc/tags).
+- [jaguarjs-jsdoc](https://github.com/davidshimjs/jaguarjs-jsdoc)
+- [DocStrap](https://github.com/docstrap/docstrap)
+  ([example](https://docstrap.github.io/docstrap))
+- [jsdoc3Template](https://github.com/DBCDK/jsdoc3Template)
+  ([example](https://github.com/danyg/jsdoc3Template/wiki#wiki-screenshots))
+- [minami](https://github.com/Nijikokun/minami)
+- [docdash](https://github.com/clenemt/docdash)
+  ([example](http://clenemt.github.io/docdash/))
+- [tui-jsdoc-template](https://github.com/nhnent/tui.jsdoc-template)
+  ([example](https://nhnent.github.io/tui.jsdoc-template/latest/))
+- [better-docs](https://github.com/SoftwareBrothers/better-docs)
+  ([example](https://softwarebrothers.github.io/admin-bro-dev/index.html))
 
-You can also use git to clone the
-[JSDoc repository](https://github.com/jsdoc3/jsdoc):
+### Build tools
 
-    git clone git+https://github.com/jsdoc3/jsdoc.git
+- [JSDoc Grunt plugin](https://github.com/krampstudio/grunt-jsdoc)
+- [JSDoc Gulp plugin](https://github.com/mlucool/gulp-jsdoc3)
+- [JSDoc GitHub Action](https://github.com/andstor/jsdoc-action)
 
-The JSDoc repository includes a
-[customized version of Mozilla Rhino](https://github.com/jsdoc3/rhino). Make
-sure your Java classpath does not include any other versions of Rhino. (On OS X,
-you may need to remove the file `~/Library/Java/Extensions/js.jar`.)
+### Other tools
 
-**Note**: In JSDoc 3.3.0 and later, if you need to run JSDoc on Mozilla Rhino,
-do not install JSDoc with npm. Use one of the methods described above.
+- [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown)
+- [Integrating GitBook with
+  JSDoc](https://medium.com/@kevinast/integrate-gitbook-jsdoc-974be8df6fb3)
 
-#### Running JSDoc with Mozilla Rhino
+## For more information
 
-On OS X, Linux, and other POSIX systems, to generate documentation for the file
-`yourJavaScriptFile.js`:
+- Documentation is available at [jsdoc.app](https://jsdoc.app/).
+- Contribute to the docs at
+  [jsdoc/jsdoc.github.io](https://github.com/jsdoc/jsdoc.github.io).
+- [Join JSDoc's Slack channel](https://jsdoc-slack.appspot.com/).
+- Ask for help on the
+  [JSDoc Users mailing list](http://groups.google.com/group/jsdoc-users).
+- Post questions tagged `jsdoc` to
+  [Stack Overflow](http://stackoverflow.com/questions/tagged/jsdoc).
 
-    ./jsdoc yourJavaScriptFile.js
+## License
 
-Or on Windows:
+JSDoc is copyright (c) 2011-present Michael Mathews <micmath@gmail.com> and
+the [contributors to JSDoc](https://github.com/jsdoc/jsdoc/graphs/contributors).
 
-    jsdoc yourJavaScriptFile.js
-
-By default, the generated documentation is saved in a directory named `out`. You
-can use the `--destination` (`-d`) option to specify another directory.
-
-Run `jsdoc --help` for a complete list of command-line options.
-
-
-For More Information
---------------------
-
-Project Documentation: <http://usejsdoc.org/>  
-Project Documentation Source: <https://github.com/jsdoc3/jsdoc3.github.com>  
-JSDoc User's Group: <http://groups.google.com/group/jsdoc-users>  
-JSDoc 3 Ant Task: <https://github.com/jannon/jsdoc3-ant-task>  
-JSDoc Grunt Plugin: <https://github.com/krampstudio/grunt-jsdoc>  
-Project Announcements: <http://twitter.com/jsdoc3>
-
-
-License
--------
-
-JSDoc 3 is copyright (c) 2011-2013 Michael Mathews <micmath@gmail.com> and the
-[contributors to JSDoc](https://github.com/jsdoc3/jsdoc/graphs/contributors).
-
-JSDoc 3 is free software, licensed under the Apache License, Version 2.0. See
-the file `LICENSE.md` in this distribution for more details.
+JSDoc is free software, licensed under the Apache License, Version 2.0. See the
+[`LICENSE`](LICENSE) file for more details.
